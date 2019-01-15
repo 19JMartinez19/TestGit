@@ -1,3 +1,5 @@
 I am testing Git on my laptop 
 
 HEre I am adding more to the text file to keep practicing commit and push
+
+I am here editing this on my PC to test something out on my laptop
