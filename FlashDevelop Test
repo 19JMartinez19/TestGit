@@ -1,0 +1,54 @@
+package
+{
+    import flash.display.Sprite;
+    import flash.events.Event;
+    import flash.events.KeyboardEvent;
+    public class Main extends Sprite 
+    {
+        
+    private var aDown:Boolean = false;
+    private var dDown:Boolean = false;
+    private var char:Player = new Player(); 
+    
+        
+        public function Main() 
+        {
+            char.x = 500;
+            char.y = 300;
+            addChild(char);
+            stage.addEventListener(Event.ENTER_FRAME, checkStuff);
+            stage.addEventListener(KeyboardEvent.KEY_DOWN, keysDown);
+            stage.addEventListener(KeyboardEvent.KEY_UP, keysUp);
+        }
+        public function checkStuff(e:Event):void
+        {
+            if (aDown)
+                char.x -= 5;
+            if (dDown)
+                char.x += 5;
+            char.adjust();
+        }
+        public function keysDown(e:KeyboardEvent):void
+        {
+            //We will be doing AWSD controls
+            
+            //If a is entered.
+            if (e.keyCode == 65) 
+                aDown = true;
+            if (e.keyCode == 68) 
+                dDown = true;
+            if (e.keyCode == 87 && char.y + char.width/2 == char.floor)
+                char.grav = -15;
+            
+        }
+        public function keysUp(e:KeyboardEvent):void
+        {
+            
+            if (e.keyCode == 65) 
+                aDown = false;
+            if (e.keyCode == 68) 
+                dDown = false;
+        }
+    }
+    
+}
