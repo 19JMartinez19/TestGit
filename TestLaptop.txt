@@ -1,1 +1,3 @@
 I am testing Git on my laptop 
+
+HEre I am adding more to the text file to keep practicing commit and push
